@@ -69,9 +69,9 @@ export var CardList=[
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TOOLS/BLOCKS.mp3')
             },
             {
-                name:'Colored Pencil',
+                name:'Coloring Pencil',
                 image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/TOOLS/COLORED PENCIL.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TOOLS/BLOCKS.mp3')
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TOOLS/coloringpencil.mp3')
             },
             {
                 name:'Clay',
@@ -159,6 +159,11 @@ export var CardList=[
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TOOLS/FORK.mp3')
             },
             {
+                name:'Knife',
+                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/TOOLS/knife.png'),
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TOOLS/knife.mp3')
+            },
+            {
                 name:'Chopsticks',
                 image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/TOOLS/CHOPSTICKS.png'),
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TOOLS/CHOPSTICKS.mp3')
@@ -174,7 +179,7 @@ export var CardList=[
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TOOLS/PLATE.mp3')
             },
             {
-                name:'Glasses',
+                name:'Eye Glasses',
                 image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/TOOLS/GLASSES.png'),
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TOOLS/EYEGLASSES.mp3')
             },
@@ -255,8 +260,8 @@ export var CardList=[
             },
             {
                 name:'Yogurt',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/FOOD/WATER.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/FOOD/WATER.mp3')
+                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/FOOD/yoghurt.png'),
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/FOOD/yoghurt.mp3')
             },
             {
                 name:'Ice Cream',
@@ -280,13 +285,8 @@ export var CardList=[
             },
             {
                 name:'Hamburger',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/FOOD/WATER.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/FOOD/WATER.mp3')
-            },
-            {
-                name:'Steak',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/FOOD/WATER.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/FOOD/WATER.mp3')
+                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/FOOD/burger.png'),
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/FOOD/hamburger.mp3')
             },
             {
                 name:'Noodles',
@@ -300,8 +300,8 @@ export var CardList=[
             },
             {
                 name:'Spaghetti',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/FOOD/WATER.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/FOOD/WATER.mp3')
+                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/FOOD/spaghetti.png'),
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/FOOD/spaghetti.mp3')
             },
         ]
     },
@@ -466,7 +466,7 @@ export var CardList=[
             {
                 name:'Teeth',
                 image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/BODY/TEETH.png'),
-                audio:''
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/teeth.mp3')
             },
             {
                 name:'Tongue',
@@ -685,8 +685,8 @@ export var CardList=[
             },
             {
                 name:'Yesterday',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/TIME/NIGHT.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TIME/NIGHT.mp3')
+                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/TIME/yesterday.png'),
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TIME/yesterday.mp3')
             },
             {
                 name:'Tomorrow',
@@ -912,6 +912,11 @@ export var CardList=[
                 name:'Behind',
                 image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/RELATIONS/Behind.png'),
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/RELATIONS/BEHIND.mp3')
+            },
+            {
+                name:'In Front',
+                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/RELATIONS/In front.png'),
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/RELATIONS/IN FRONT.mp3')
             },
             {
                 name:'Over',

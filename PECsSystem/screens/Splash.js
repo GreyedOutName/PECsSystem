@@ -26,7 +26,6 @@ export default function Splash({navigation}){
         const value = await AsyncStorage.getItem('skipTutorial');
         const truevalue = JSON.parse(value)
         if (value !== null) {
-          alert("Current skip data is "+truevalue);
           setskip(truevalue)
         }
       } catch (e) {

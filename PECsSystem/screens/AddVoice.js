@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from "react";
 import * as Progress from 'react-native-progress';
 import {  StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions, TextInput} from 'react-native';
-import { changeAddVoiceUrl,fromAddVoiceUrl } from '../data/miscellaneous';
+import { changeAddVoiceUrl } from '../data/miscellaneous';
 import { Audio } from 'expo-av';
 
 const windowWidth = Dimensions.get('window').width;
@@ -26,7 +26,7 @@ export default function AddVoice({navigation}) {
   }
 
   const startRecording = async() => {
-    changeAddVoiceUrl(null);
+    await changeAddVoiceUrl(null);
     setRecordingDuration(0)
     setIsRecording(true);
     setIsReadyToPlay(false);
@@ -51,7 +51,7 @@ export default function AddVoice({navigation}) {
           allowsRecording: true,
           playsInSilentMode: true,
         });
-        const { recording } = await Audio.Recording.createAsync(Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY);
+        const { recording } = await Audio.Recording.createAsync(Audio.RecordingOptionsPresets.LOW_QUALITY);
         setRecording(recording); // Start recording
       } else {
         setRecording(undefined);
@@ -75,7 +75,7 @@ export default function AddVoice({navigation}) {
           await recording.stopAndUnloadAsync();
           // Create new recording object with sound, duration, and file URI
           const { sound, status } = await recording.createNewLoadedSoundAsync();
-          changeAddVoiceUrl(recording.getURI())
+          await changeAddVoiceUrl(recording.getURI())
           const newRecording = {
             sound: sound,
             duration: getDurationFormatted(status.durationMillis),
@@ -98,7 +98,8 @@ export default function AddVoice({navigation}) {
 
   const saveVoice=()=>{
     navigation.navigate("AddCard");
-    setDoneRecording(false)
+    setDoneRecording(false);
+    setIsReadyToPlay(false);
   }
 
   useEffect(() => {
@@ -121,11 +122,6 @@ export default function AddVoice({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backbtn}>
-          <Text>
-            ←
-          </Text>
-        </TouchableOpacity>
         <Text>
           EDIT
         </Text>

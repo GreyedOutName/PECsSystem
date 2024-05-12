@@ -10,35 +10,35 @@ const windowHeight = Dimensions.get('window').height;
 
 export default function AddCard({navigation}) {
   const [text, setText] = useState('');
-  const [audioUrl, setAudioUrl]=useState()
+  const [cantSave,setCantSave]=useState(true);
 
   const saveCard=async()=>{
-    setAudioUrl(fromAddVoiceUrl)
     try {
       myDeck=CardList[0].content
       if(myDeck==null){
         newCard={
           name:text,
-          audio:{uri:audioUrl},
+          audio:{uri:fromAddVoiceUrl},
         }
         myDeck=[newCard]
       }
       else{
         newCard={
           name:text,
-          audio:{uri:audioUrl},
+          audio:{uri:fromAddVoiceUrl},
         }
         myDeck.unshift(newCard)
       }
-
       await AsyncStorage.setItem('myDeckContent',JSON.stringify(myDeck))
-
+      setText(null)
+      setCantSave(true)
     } catch (e) {
       alert(e);
     } 
   }
 
   const addVoice=()=>{
+    setCantSave(false)
     navigation.navigate('AddVoice')
   }
  
@@ -69,23 +69,22 @@ export default function AddCard({navigation}) {
             placeholder="INSERT TEXT"
           />
         </View>
-
         <View style={styles.btncontainer}>
-        <TouchableOpacity style={styles.addbtns} onPress={()=>{addVoice()}}>
-          <Text>
-            ADD VOICE
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.addbtns}>
-          <Text>
-            ADD SECOND IMAGE
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.addbtns}  onPress={()=>{saveCard()}}>
-          <Text>
-            SAVE
-          </Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.addbtns} onPress={()=>{addVoice()}}>
+            <Text>
+              ADD VOICE
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.addbtns}>
+            <Text>
+              ADD SECOND IMAGE
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.addbtns} disabled={cantSave} onPress={()=>{saveCard()}}>
+            <Text>
+              SAVE
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>  
     </View>

@@ -12,7 +12,7 @@ export default function Home({navigation}) {
   
  
   const renderItem =({item})=>(
-    <TouchableOpacity style={styles.card} onLongPress={()=>{alert('ffff')}} onPress={()=>{addToPlayDeck(item)}}>
+    <TouchableOpacity style={styles.card} onLongPress={()=>{callEditCard()}} onPress={()=>{addToPlayDeck(item)}}>
       <Image source={item.image} style={styles.cardPicture}></Image>
       <Text>{item.name}</Text>
     </TouchableOpacity>
@@ -71,9 +71,13 @@ export default function Home({navigation}) {
     }
   }
 
+  const callEditCard=()=>{
+    navigation.navigate('EditCard')
+  }
+
   useEffect(()=>{
     getContentData();
-  },[])
+  },[playDeck,selectedDeck])
   
 //style={styles.selectedcards}//
   return (
