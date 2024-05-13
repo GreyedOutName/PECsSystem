@@ -51,7 +51,7 @@ export default function AddVoice({navigation}) {
           allowsRecording: true,
           playsInSilentMode: true,
         });
-        const { recording } = await Audio.Recording.createAsync(Audio.RecordingOptionsPresets.LOW_QUALITY);
+        const { recording } = await Audio.Recording.createAsync(Audio.RecordingOptionsPresets.HIGH_QUALITY);
         setRecording(recording); // Start recording
       } else {
         setRecording(undefined);
