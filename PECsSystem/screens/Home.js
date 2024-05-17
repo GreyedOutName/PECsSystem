@@ -9,16 +9,17 @@ export default function Home({navigation}) {
   const [selectedDeck,setDeck]=useState(CardList[1].content)
   const [playDeck,setPlayDeck]=useState([])
   const [searchInputVisible, setSearchInputVisible] = useState(false);
+  const [curCategory,setCategory]=useState();
   
  
   const renderItem =({item})=>(
-    <TouchableOpacity style={styles.card} onLongPress={()=>{callEditCard()}} onPress={()=>{addToPlayDeck(item)}}>
+    <TouchableOpacity style={styles.card} onLongPress={()=>{callEditCard(item)}} onPress={()=>{addToPlayDeck(item)}}>
       <Image source={item.image} style={styles.cardPicture}></Image>
       <Text>{item.name}</Text>
     </TouchableOpacity>
   );
   const renderCategory =({item})=>(
-    <TouchableOpacity style={styles.categorybtn} onPress={()=>{setDeck(item.content)}}>
+    <TouchableOpacity style={styles.categorybtn} onPress={()=>{setDeck(item.content),setCategory(item.name)}}>
       <Text>{item.name}</Text>
     </TouchableOpacity>
   );
@@ -30,7 +31,8 @@ export default function Home({navigation}) {
   )
 
   const addToPlayDeck=(item)=>{
-    setPlayDeck([...playDeck,item])
+    if(playDeck.length<5)
+      setPlayDeck([...playDeck,item])
   }
   const clearPlayDeck=()=>{
     setPlayDeck([])
@@ -71,8 +73,10 @@ export default function Home({navigation}) {
     }
   }
 
-  const callEditCard=()=>{
-    navigation.navigate('EditCard')
+  const callEditCard=(item)=>{
+    if(curCategory==='My Deck'){
+      navigation.navigate('EditCard',{name:item.name,image:item.image,audio:item.audio})
+    }
   }
 
   useEffect(()=>{

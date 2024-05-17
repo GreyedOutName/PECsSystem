@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native';
+import { useState } from 'react';
 import { CardList } from '../data/CardData';
 
 export default function EditDeck({navigation}){
-
-  const renderItem =({item})=>(
+  const renderItem =()=>(
     <View style={styles.card}>
       <Text>{item.name}</Text>
       <Text>{item.category}</Text>
