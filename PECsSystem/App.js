@@ -8,8 +8,6 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from './screens/Home';
 import Splash from './screens/Splash';
 import Tutorial from './screens/Tutorial';
-import Select from './screens/Select';
-import EditDeck from './screens/EditDeck';
 import EditCard from './screens/EditCard';
 import AddVoice from './screens/AddVoice';
 import AddCard from './screens/AddCard';
@@ -23,8 +21,6 @@ const DrawerNav=()=>{
       <Drawer.Navigator>
         <Drawer.Screen name="Tutorial" component={Tutorial} options={{headerShown: true,drawerItemStyle:{display:"none"}}}/>
         <Drawer.Screen name="Home" component={Home} options={{headerShown:false}}/>
-        <Drawer.Screen name="Select" component={Select}/>
-        <Drawer.Screen name="EditDeck" component={EditDeck}/>
         <Drawer.Screen name="EditCard" component={EditCard} options={{drawerItemStyle:{display:"none"}}}/>
         <Drawer.Screen name="AddCard" component={AddCard}/>
         <Drawer.Screen name="AddVoice" component={AddVoice} options={{drawerItemStyle:{display:"none"}}}/>
