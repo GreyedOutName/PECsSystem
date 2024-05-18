@@ -34,7 +34,6 @@ export default function AddVoice({navigation}) {
     const newTimer = setInterval(() => {
         setProgress((prevProgress) => {
             if (prevProgress <= 0.0) {
-              stopRecording()
               clearInterval(newTimer);
               return 1.0;
             }
@@ -97,7 +96,7 @@ export default function AddVoice({navigation}) {
   };
 
   const saveVoice=()=>{
-    navigation.navigate("AddCard");
+    navigation.goBack();
     setDoneRecording(false);
     setIsReadyToPlay(false);
   }

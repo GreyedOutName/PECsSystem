@@ -18,10 +18,10 @@ const Drawer=createDrawerNavigator();
 
 const DrawerNav=()=>{
   return(
-      <Drawer.Navigator>
+      <Drawer.Navigator backBehavior='history'>
         <Drawer.Screen name="Tutorial" component={Tutorial} options={{headerShown: true,drawerItemStyle:{display:"none"}}}/>
         <Drawer.Screen name="Home" component={Home} options={{headerShown:false}}/>
-        <Drawer.Screen name="EditCard" component={EditCard} options={{drawerItemStyle:{display:"none"}}}/>
+        <Drawer.Screen name="EditCard" component={EditCard} options={{drawerItemStyle:{display:"none"},unmountOnBlur:true}}/>
         <Drawer.Screen name="AddCard" component={AddCard}/>
         <Drawer.Screen name="AddVoice" component={AddVoice} options={{drawerItemStyle:{display:"none"}}}/>
       </Drawer.Navigator>

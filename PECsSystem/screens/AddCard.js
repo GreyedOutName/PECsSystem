@@ -3,7 +3,7 @@ import { useState ,useEffect} from "react";
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions, TextInput, Modal, Image} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CardList } from '../data/CardData';
-import { fromAddVoiceUrl } from '../data/miscellaneous';
+import { fromAddVoiceUrl ,changeAddVoiceUrl} from '../data/miscellaneous';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
 
@@ -39,6 +39,9 @@ export default function AddCard({navigation}) {
       }
       await AsyncStorage.setItem('myDeckContent',JSON.stringify(myDeck))
       setText(null)
+      setImage(null)
+      setImageUri(null)
+      await changeAddVoiceUrl(null)
       setCantSave(true)
     } catch (e) {
       alert(e);

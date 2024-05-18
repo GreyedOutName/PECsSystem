@@ -3,7 +3,7 @@ import { useState ,useEffect} from "react";
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions, TextInput, Modal, Image} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CardList } from '../data/CardData';
-import { fromAddVoiceUrl } from '../data/miscellaneous';
+import { fromAddVoiceUrl,changeAddVoiceUrl } from '../data/miscellaneous';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
 const windowWidth = Dimensions.get('window').width;
@@ -13,14 +13,13 @@ const windowHeight = Dimensions.get('window').height;
 export default function Create({navigation,route}) {
   const{name,image,audio}=route.params;
   const [text, setText] = useState(name);
-  const [cantSave,setCantSave]=useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
   const [image2, setImage] = useState(image);
-  const [imageUri, setImageUri]=useState(null);
+  const [imageUri, setImageUri]=useState(image);
 
   const saveCard=async()=>{
-    const sortByName=()=>{
+    const sortByName=(card)=>{
       return card.name!=name
     }
     myDeck=CardList[0].content
@@ -29,12 +28,11 @@ export default function Create({navigation,route}) {
       newCard={
         name:text,
         image:imageUri,
-        audio:{uri:fromAddVoiceUrl},
+        audio:fromAddVoiceUrl==null?(audio):{uri:fromAddVoiceUrl},
       }
       newDeck.unshift(newCard)
       await AsyncStorage.setItem('myDeckContent',JSON.stringify(newDeck))
-      setText(null)
-      setCantSave(true)
+      navigation.navigate('Home')
     } catch (e) {
       alert(e);
     } 
@@ -47,10 +45,10 @@ export default function Create({navigation,route}) {
     myDeck=CardList[0].content
     const newDeck=myDeck.filter(deleteByName)
     await AsyncStorage.setItem('myDeckContent',JSON.stringify(newDeck))
+    navigation.navigate('Home')
   }
 
   const addVoice=()=>{
-    setCantSave(true)
     navigation.navigate('AddVoice')
   }
 
@@ -181,13 +179,11 @@ export default function Create({navigation,route}) {
               DELETE
             </Text>
           </TouchableOpacity>
-          {cantSave?(
             <TouchableOpacity style={styles.addbtns} onPress={()=>{saveCard()}}>
             <Text>
               SAVE
             </Text>
           </TouchableOpacity>
-          ):null}
         </View>
       </View>  
     </View>
