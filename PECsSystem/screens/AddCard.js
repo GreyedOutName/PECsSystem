@@ -161,9 +161,8 @@ export default function AddCard({navigation}) {
               <Image source={image} style={styles.cardPicture}></Image>
             ):
               (
-              <Text>
-                +
-              </Text>)
+                <Image source={require('../assets/icons8-plus-100.png')}/>
+              )
             }
           </TouchableOpacity>
         <TextInput
@@ -175,13 +174,13 @@ export default function AddCard({navigation}) {
         </View>
         <View style={styles.btncontainer}>
           <TouchableOpacity style={styles.addbtns} onPress={()=>{addVoice()}}>
-            <Text>
+            <Text style={styles.text}>
               ADD VOICE
             </Text>
           </TouchableOpacity>
           {cantSave?(
             <TouchableOpacity style={styles.addbtns} onPress={()=>{saveCard()}}>
-            <Text>
+            <Text style={styles.text}>
               SAVE
             </Text>
           </TouchableOpacity>
@@ -217,7 +216,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   cardcontainer:{
-    backgroundColor: 'lightgray',
+    backgroundColor: 'white',
     height: windowHeight * .45,
     width: windowWidth *0.70,
     marginTop: 30,
@@ -225,14 +224,25 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
     borderRadius: 10,
+    borderWidth: 3,
+    borderColor: '#b8b8d1',
+    borderStyle: 'solid',
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   addimagebtn:{
-    backgroundColor: 'lightblue',
+    backgroundColor: '#5B5F97',
     height: 200,
     width: 200,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 16,
   },
   input: {
     height: '20%',
@@ -258,8 +268,8 @@ const styles = StyleSheet.create({
     backgroundColor:'red',
   }, 
   addbtns:{
-    backgroundColor: 'lightblue',
-    marginBottom: 10,
+    backgroundColor: '#5B5F97',
+    marginBottom: 16,
     height: 50,
     width: '100%',
     alignItems: 'center',
@@ -275,5 +285,10 @@ const styles = StyleSheet.create({
   cardPicture:{
     height:'85%',
     width:'85%'
+  },
+  text:{
+    fontWeight: 'bold',
+    color: '#ffc145',
+    fontSize: 18,
   }
 });
