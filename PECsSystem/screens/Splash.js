@@ -11,7 +11,7 @@ export default function Splash({navigation}){
       try {
         await AsyncStorage.setItem('skipTutorial',JSON.stringify(value))
         if(skip==true){
-          navigation.navigate('Drawer',{screen:'Home'})
+          navigation.navigate('Drawer',{screen:'Tutorial'})
         }
         else{
           navigation.navigate('Drawer')

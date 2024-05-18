@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from "react";
 import * as Progress from 'react-native-progress';
-import {  StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions, TextInput} from 'react-native';
+import {  StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions, TextInput, Image} from 'react-native';
 import { changeAddVoiceUrl } from '../data/miscellaneous';
 import { Audio } from 'expo-av';
 
@@ -122,9 +122,13 @@ export default function AddVoice({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>
-          EDIT
+        <Text style={styles.uppertext}>
+          Let's add a Voice!
         </Text>
+      </View>
+      
+      <View style={styles.cardcontainer}>
+          <Image source={require('../assets/girlwithabigassphone.png')} style={styles.image} />
       </View>
       
       <View>
@@ -141,11 +145,17 @@ export default function AddVoice({navigation}) {
         )}
         {/* Record button */}
         <TouchableOpacity style={styles.addbtns} onPress={isReadyToPlay ? startPlaying : isRecording ? stopRecording : startRecording}>
-            <Text>{isReadyToPlay ? 'Play' : isRecording ? 'Stop' : 'Record'}</Text>
+        {isReadyToPlay ? (
+            <Image source={require('../assets/icons8-play-60.png')} />
+          ) : isRecording ? (
+            <Image source={require('../assets/icons8-stop-60.png')} />
+          ) : (
+            <Image source={require('../assets/icons8-mic-50.png')} />
+          )}
         </TouchableOpacity>
         {doneRecording?(
-          <TouchableOpacity style={styles.addbtns} onPress={()=>{saveVoice()}}>
-            <Text>{'Save'}</Text>
+          <TouchableOpacity style={styles.addbtns2} onPress={()=>{saveVoice()}}>
+            <Text style={styles.text}>{'Save'}</Text>
         </TouchableOpacity>
         ):null}
         
@@ -166,9 +176,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    height: 40,
+    marginTop: 30,
     width: '95%',
     justifyContent: 'center'
+  },
+  uppertext:{
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   backbtn: {
     backgroundColor: 'lightgray',
@@ -180,30 +194,24 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   cardcontainer:{
-    backgroundColor: 'lightgray',
+    backgroundColor: 'white',
     height: windowHeight * .45,
-    width: windowWidth *0.70,
-    marginTop: 30,
-    paddingTop: 20,
+    width: windowWidth *0.90,
     paddingHorizontal: 20,
     alignItems: 'center',
-    borderRadius: 10,
   },
   addimagebtn:{
-    backgroundColor: 'lightblue',
+    backgroundColor: '#5B5F97',
     height: 200,
     width: 200,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 16,
   },
   input: {
     height: '20%',
     width: 200,
     marginTop: 25,
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    borderColor: 'grey',
     padding: 10,
     fontSize: 20,
     textAlign: 'center',
@@ -214,12 +222,32 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   addbtns:{
-    backgroundColor: 'lightblue',
-    marginBottom: 10,
+    backgroundColor: '#5B5F97',
+    borderWidth: 4,
+    borderColor: '#ffc145',
+    marginBottom: 25,
     height: 100,
     width: 100,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
   },
+  addbtns2:{
+    backgroundColor: '#5B5F97',
+    marginBottom: 16,
+    height: 50,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
+  text:{
+    fontWeight: 'bold',
+    color: '#ffc145',
+    fontSize: 18,
+  },
+  image:{
+    height: windowHeight * .45,
+    width: windowWidth *0.90,
+  }
 });

@@ -118,6 +118,7 @@ export default function AddCard({navigation}) {
       }
     })();
   }, [modalVisible]);
+  
  
   return (
     <View style={styles.container}>
@@ -130,30 +131,26 @@ export default function AddCard({navigation}) {
         }}>
         <View style={styles.modal}>
           <View style={styles.btncontainerModal}>
+            
             <TouchableOpacity style={styles.addbtns} onPress={() => pickImage('camera')}>
-              <Text>
-                Use Camera
+              <Text style={styles.text}>
+                USE CAMERA
               </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.addbtns} onPress={() => pickImage('gallery')}>
-              <Text>
-                Pick From Gallery
+              <Text style={styles.text}>
+                USE GALLERY
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.close} onPress={() => setModalVisible(false)}>
+              <Text style={styles.closetext}>
+                Cancel
               </Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.backbtn}>
-          <Text>
-            ←
-          </Text>
-        </TouchableOpacity>
-        <Text>
-          EDIT
-        </Text>
-      </View>
-      
+
       <View>
         <View style={styles.cardcontainer}>
           <TouchableOpacity style={styles.addimagebtn} onPress={()=>{setModalVisible(true)}}>
@@ -262,10 +259,12 @@ const styles = StyleSheet.create({
   },
   btncontainerModal:{
     width: windowWidth *0.70,
-    height: windowHeight *0.45,
+    height: windowHeight *0.30,
     alignItems: 'center',
     justifyContent:'center',
-    backgroundColor:'red',
+    backgroundColor:'white',
+    padding: 10,
+    borderRadius: 12,
   }, 
   addbtns:{
     backgroundColor: '#5B5F97',
@@ -276,6 +275,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 10,
   },
+  close:{
+    backgroundColor: 'white',
+    height: 50,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#d1d1d1'
+  },
+  closetext:{
+    fontWeight: 'bold',
+    color: 'gray',
+    fontSize: 18,
+  },
   modal:{
     flex: 1,
     justifyContent: 'center',
@@ -283,8 +297,10 @@ const styles = StyleSheet.create({
     backgroundColor:'rgba(0, 0, 0, 0.8)',
   },
   cardPicture:{
-    height:'85%',
-    width:'85%'
+    height:'100%',
+    width:'100%',
+    borderRadius: 12,
+    borderWidth: 1,
   },
   text:{
     fontWeight: 'bold',
