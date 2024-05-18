@@ -12,19 +12,9 @@ export default function Select() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.backbtn}>
-          <Text>
-            ←
-          </Text>
-        </TouchableOpacity>
-        <Text>
-          SELECT
-        </Text>
-      </View>
-
       <View style={styles.flatlistcontainer}>
         <FlatList
+          contentContainerStyle={{ paddingBottom: 20, paddingHorizontal: 16 }}
           data={CardList}
           renderItem={Selectables}
           keyExtractor={item => item.id}
@@ -58,16 +48,22 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   flatlistcontainer:{
-    marginTop: 25,
     marginBottom:40,
     width: '100%',
     height:'auto',
   },
+  flatlistcontainer1:{
+    backgroundColor: 'red',
+    
+  },
   item:{
-    backgroundColor: 'lightgray',
+    backgroundColor: 'white',
     height: 50,
     margin: 5,
     justifyContent: 'center',
     padding:10,
+    borderBottomColor: '#b8b8d1',
+    borderBottomWidth: 2,
+    
   },
 });
