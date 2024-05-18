@@ -80,6 +80,10 @@ export default function Home({navigation}) {
     }
   }
 
+  const search=(text)=>{
+    alert(text)
+  }
+
   useEffect(()=>{
     getContentData();
   },[playDeck,selectedDeck])
@@ -128,7 +132,7 @@ export default function Home({navigation}) {
               </TouchableOpacity>
               {searchInputVisible &&(
                 <>
-                <TextInput placeholder="Search" style={styles.searchinput}/>
+                <TextInput placeholder="Search" style={styles.searchinput} onChangeText={(text)=>{search(text)}}/>
                 <View style={styles.searchcancelbtnbackground} >
                   <TouchableOpacity style={styles.searchcancelbtn} onPress={()=>setSearchInputVisible(false)}>
                     <Ionicons name="close" size={30} color='#FFC145'/>

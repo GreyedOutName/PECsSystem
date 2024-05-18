@@ -424,19 +424,9 @@ export var CardList=[
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/EARS.mp3')
             },
             {
-                name:'Hand',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/BODY/FACE.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/FACE.mp3')
-            },
-            {
                 name:'Arm',
                 image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/BODY/ARM.png'),
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/ARM.mp3')
-            },
-            {
-                name:'Stomach',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/BODY/FACE.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/FACE.mp3')
             },
             {
                 name:'Back',
@@ -447,11 +437,6 @@ export var CardList=[
                 name:'Foot',
                 image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/BODY/FOOT.png'),
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/FOOT.mp3')
-            },
-            {
-                name:'Fingers',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/BODY/FACE.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/FACE.mp3')
             },
             {
                 name:'Knee',
@@ -472,11 +457,6 @@ export var CardList=[
                 name:'Tongue',
                 image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/BODY/TONGUE.png'),
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/TONGUE.mp3')
-            },
-            {
-                name:'Throat',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/BODY/FACE.png'),
-                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/BODY/FACE.mp3')
             },
         ]
     },
@@ -679,9 +659,9 @@ export var CardList=[
                 audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TIME/NIGHT.mp3')
             },
             {
-                name:'Today',
-                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/TIME/NIGHT.png'),
-                audio:''
+                name:'Now',
+                image:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/FLASHCARDS/TIME/NOW.png'),
+                audio:require('../assets/FLASHCARDS + SFX/FLASHCARDS + SFX/AI VOICELINES/TIME/NOW.mp3')
             },
             {
                 name:'Yesterday',
