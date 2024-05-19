@@ -27,13 +27,14 @@ const DrawerNav=()=>{
             color: 'white',
             textAlign:'center',
             marginLeft: 30
-        },}} 
+        },
+        drawerPosition: 'right',}} 
         backBehavior='history'>
-        <Drawer.Screen name="Tutorial" component={Tutorial} options={{headerShown: true,drawerItemStyle:{display:"none"}}}/>
+        <Drawer.Screen name="Tutorial" component={Tutorial} options={{headerShown: false,drawerItemStyle:{display:"none"}}}/>
         <Drawer.Screen name="Home" component={Home} options={{headerShown:false}}/>
         <Drawer.Screen name="EditCard" component={EditCard} options={{drawerItemStyle:{display:"none"},unmountOnBlur:true}}/>
-        <Drawer.Screen name="AddCard" component={AddCard}/>
-        <Drawer.Screen name="AddVoice" component={AddVoice} options={{drawerItemStyle:{display:"none"}}}/>
+        <Drawer.Screen name="Add Card" component={AddCard} options={{headerShown: false,}}/>
+        <Drawer.Screen name="AddVoice" component={AddVoice} options={{headerShown: false, drawerItemStyle:{display:"none"}}}/>
       </Drawer.Navigator>
   )
 }

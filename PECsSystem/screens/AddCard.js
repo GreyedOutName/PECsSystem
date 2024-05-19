@@ -3,6 +3,7 @@ import { useState ,useEffect} from "react";
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions, TextInput, Modal, Image} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CardList } from '../data/CardData';
+import Ionicons from '@expo/vector-icons/Ionicons'
 import { fromAddVoiceUrl ,changeAddVoiceUrl} from '../data/miscellaneous';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
@@ -125,6 +126,14 @@ export default function AddCard({navigation}) {
  
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={()=>{navigation.openDrawer()}} style={styles.menu}>
+          <Ionicons name="menu" size={32} color="#5B5F97"/>
+      </TouchableOpacity>
+      <View style={styles.header}>
+        <Text style={styles.uppertext}>
+          Make your own Card!
+        </Text>
+      </View>
       <Modal
         animationType="slide"
         transparent={true}
@@ -202,7 +211,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    height: 40,
+    marginTop: 100,
     width: '95%',
     justifyContent: 'center'
   },
@@ -309,5 +318,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffc145',
     fontSize: 18,
-  }
+  },
+  menu: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    height: 50,
+    width: 50,
+    borderRadius: 30,
+    position: 'absolute',
+    right: 5,
+    alignSelf: 'flex-start',
+    marginVertical: 30,
+  },
+  uppertext:{
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });
