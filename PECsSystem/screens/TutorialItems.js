@@ -33,8 +33,9 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     description:{
-        fontWeight: '300',
-        fontSize: 12,
-        textAlign: 'center'
+        fontWeight: '500',
+        fontSize: 16,
+        textAlign: 'center',
+        paddingHorizontal: 20,
     },
   });

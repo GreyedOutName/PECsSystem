@@ -4,6 +4,7 @@ import * as Progress from 'react-native-progress';
 import {  StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions, TextInput, Image} from 'react-native';
 import { changeAddVoiceUrl } from '../data/miscellaneous';
 import { Audio } from 'expo-av';
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -120,6 +121,9 @@ export default function AddVoice({navigation}) {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={()=>{navigation.openDrawer()}} style={styles.menu}>
+          <Ionicons name="menu" size={32} color="#5B5F97"/>
+      </TouchableOpacity>
       <View style={styles.header}>
         <Text style={styles.uppertext}>
           Let's add a Voice!
@@ -175,7 +179,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    marginTop: 30,
+    marginTop: 100,
     width: '95%',
     justifyContent: 'center'
   },
@@ -248,5 +252,16 @@ const styles = StyleSheet.create({
   image:{
     height: windowHeight * .45,
     width: windowWidth *0.90,
-  }
+  },
+  menu: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    height: 50,
+    width: 50,
+    borderRadius: 30,
+    position: 'absolute',
+    right: 5,
+    alignSelf: 'flex-start',
+    marginVertical: 30,
+  },
 });
