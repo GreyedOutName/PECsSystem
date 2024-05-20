@@ -81,7 +81,17 @@ export default function Home({navigation}) {
   }
 
   const search=(text)=>{
-    alert(text)
+    let AllDecks=[]
+    const text2=text.toLowerCase()
+    CardList.forEach(element => {
+      element.content.forEach(element2=>{
+        const isIncluded=element2.name.toLowerCase().includes(text2)
+        if(isIncluded){
+          AllDecks=[...AllDecks,element2]
+        }
+      })
+    });
+    setDeck(AllDecks)
   }
 
   useEffect(()=>{
