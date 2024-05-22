@@ -32,7 +32,7 @@ const DrawerNav=()=>{
         backBehavior='history'>
         <Drawer.Screen name="Tutorial" component={Tutorial} options={{headerShown: false,drawerItemStyle:{display:"none"}}}/>
         <Drawer.Screen name="Home" component={Home} options={{headerShown:false}}/>
-        <Drawer.Screen name="EditCard" component={EditCard} options={{drawerItemStyle:{display:"none"},unmountOnBlur:true}}/>
+        <Drawer.Screen name="EditCard" component={EditCard} options={{drawerItemStyle:{display:"none"},unmountOnBlur:true,headerShown: false,}}/>
         <Drawer.Screen name="Add Card" component={AddCard} options={{headerShown: false,}}/>
         <Drawer.Screen name="AddVoice" component={AddVoice} options={{headerShown: false, drawerItemStyle:{display:"none"}}}/>
       </Drawer.Navigator>

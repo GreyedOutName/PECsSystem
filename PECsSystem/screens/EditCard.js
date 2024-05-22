@@ -6,6 +6,7 @@ import { CardList } from '../data/CardData';
 import { fromAddVoiceUrl,changeAddVoiceUrl } from '../data/miscellaneous';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
+import Ionicons from '@expo/vector-icons/Ionicons'
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -123,6 +124,14 @@ export default function Create({navigation,route}) {
  
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={()=>{navigation.openDrawer()}} style={styles.menu}>
+          <Ionicons name="menu" size={32} color="#5B5F97"/>
+      </TouchableOpacity>
+      <View style={styles.header}>
+        <Text style={styles.uppertext}>
+          Make your own Card!
+        </Text>
+      </View>
       <Modal
         animationType="slide"
         transparent={true}
@@ -145,16 +154,6 @@ export default function Create({navigation,route}) {
           </View>
         </View>
       </Modal>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.backbtn}>
-          <Text>
-            ←
-          </Text>
-        </TouchableOpacity>
-        <Text>
-          EDIT
-        </Text>
-      </View>
       
       <View>
         <View style={styles.cardcontainer}>
@@ -170,17 +169,17 @@ export default function Create({navigation,route}) {
         </View>
         <View style={styles.btncontainer}>
           <TouchableOpacity style={styles.addbtns} onPress={()=>{addVoice()}}>
-            <Text>
+            <Text style={styles.text}>
               ADD VOICE
             </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.addbtns} onPress={()=>{deleteCard()}}>
-            <Text>
+            <Text style={styles.text}>
               DELETE
             </Text>
           </TouchableOpacity>
             <TouchableOpacity style={styles.addbtns} onPress={()=>{saveCard()}}>
-            <Text>
+            <Text style={styles.text}>
               SAVE
             </Text>
           </TouchableOpacity>
@@ -201,7 +200,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    height: 40,
+    marginTop: 100,
     width: '95%',
     justifyContent: 'center'
   },
@@ -215,7 +214,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   cardcontainer:{
-    backgroundColor: 'lightgray',
+    backgroundColor: 'white',
     height: windowHeight * .45,
     width: windowWidth *0.70,
     marginTop: 30,
@@ -223,14 +222,25 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
     borderRadius: 10,
+    borderWidth: 3,
+    borderColor: '#b8b8d1',
+    borderStyle: 'solid',
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   addimagebtn:{
-    backgroundColor: 'lightblue',
+    backgroundColor: '#5B5F97',
     height: 200,
     width: 200,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 16,
   },
   input: {
     height: '20%',
@@ -248,17 +258,69 @@ const styles = StyleSheet.create({
     width: windowWidth *0.70,
     alignItems: 'center',
   },
+  btncontainerModal:{
+    width: windowWidth *0.70,
+    height: windowHeight *0.30,
+    alignItems: 'center',
+    justifyContent:'center',
+    backgroundColor:'white',
+    padding: 10,
+    borderRadius: 12,
+  }, 
   addbtns:{
-    backgroundColor: 'lightblue',
-    marginBottom: 10,
+    backgroundColor: '#5B5F97',
+    marginBottom: 16,
     height: 50,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
   },
+  close:{
+    backgroundColor: 'white',
+    height: 50,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#d1d1d1'
+  },
+  closetext:{
+    fontWeight: 'bold',
+    color: 'gray',
+    fontSize: 18,
+  },
+  modal:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'rgba(0, 0, 0, 0.8)',
+  },
   cardPicture:{
-    height:'85%',
-    width:'85%'
-  }
+    height:'100%',
+    width:'100%',
+    borderRadius: 12,
+    borderWidth: 1,
+  },
+  text:{
+    fontWeight: 'bold',
+    color: '#ffc145',
+    fontSize: 18,
+  },
+  menu: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    height: 50,
+    width: 50,
+    borderRadius: 30,
+    position: 'absolute',
+    right: 5,
+    alignSelf: 'flex-start',
+    marginVertical: 30,
+  },
+  uppertext:{
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });

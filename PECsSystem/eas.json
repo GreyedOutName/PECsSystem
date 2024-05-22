@@ -1,0 +1,19 @@
+{
+  "cli": {
+    "version": ">= 9.0.7"
+  },
+  "build": {
+    "preview": {
+      "distribution": "internal",
+      "developmentClient": true,
+      "android":{
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {}
+  }
+}
