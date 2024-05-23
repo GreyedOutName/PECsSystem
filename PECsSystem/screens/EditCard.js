@@ -129,7 +129,7 @@ export default function Create({navigation,route}) {
       </TouchableOpacity>
       <View style={styles.header}>
         <Text style={styles.uppertext}>
-          Make your own Card!
+          Give this card a new spin!
         </Text>
       </View>
       <Modal
